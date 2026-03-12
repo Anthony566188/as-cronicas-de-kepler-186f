@@ -1,0 +1,21 @@
+DECLARE
+    v_fator_ajuste NUMBER;
+    v_evento VARCHAR2(20) := :evento;
+BEGIN
+    FOR r_ativo IN (SELECT id_ativo, setor, preco_base FROM TB_ATIVOS_GALACTICOS) LOOP
+        IF v_evento = 'RADIACAO' THEN
+            IF    r_ativo.setor = 'DADOS'   THEN v_fator_ajuste := 1.25;
+            ELSIF r_ativo.setor = 'MINERAL' THEN v_fator_ajuste := 0.90;
+            ELSE                                 v_fator_ajuste := 1.05;
+            END IF;
+        ELSIF v_evento = 'DESCOBERTA' THEN
+            IF r_ativo.setor = 'MINERAL' THEN v_fator_ajuste := 0.50;
+            ELSE                              v_fator_ajuste := 1.10;
+            END IF;
+        END IF;
+        UPDATE TB_ATIVOS_GALACTICOS
+           SET preco_base = preco_base * v_fator_ajuste
+         WHERE id_ativo = r_ativo.id_ativo;
+    END LOOP;
+    COMMIT;
+END;
