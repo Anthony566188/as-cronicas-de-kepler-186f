@@ -1,0 +1,12 @@
+[tool.uv]
+pip = true
+
+[project]
+name = "kepler-186f"
+version = "1.0.0"
+requires-python = ">=3.12"
+dependencies = [
+    "flask==3.1.0",
+    "python-oracledb",
+    "python-dotenv==1.0.1"
+]
