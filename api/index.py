@@ -18,7 +18,45 @@ def get_connection():
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return """
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>As Crônicas de Kepler-186f</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Exo+2:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --void: #03080f;
+    --deep: #070f1c;
+    --panel: #0b1929;
+    --panel2: #0e1f30;
+    --border: #112840;
+    --border2: #1a3a5c;
+    --cyan: #00d4ff;
+    --cyan2: #00a8cc;
+    --amber: #f5a623;
+    --amber2: #c07a00;
+    --red: #ff3b5c;
+    --green: #00ffb0;
+    --green2: #00cc8a;
+    --purple: #b060ff;
+    --text: #c0daf0;
+    --text2: #7aa0bf;
+    --text3: #3d6080;
+  }
+  /* ... mantenha aqui todo o seu código CSS que está no index.html ... */
+</style>
+</head>
+<body>
+    <script>
+      // ... mantenha as suas funções JavaScript aqui ...
+    </script>
+</body>
+</html>
+"""
 
 @app.route("/ativos")
 def listar_ativos():

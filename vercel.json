@@ -1,19 +1,5 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "app.py",
-      "use": "@vercel/python",
-      "config": {
-        "runtime": "python3.12"
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "app.py"
-    }
-  ],
-  "installCommand": "pip install -r requirements.txt"
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/api/index.py" }
+  ]
 }
