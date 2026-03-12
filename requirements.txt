@@ -1,3 +1,4 @@
+--index-url https://pypi.org/simple/
 flask==3.1.0
 python-oracledb
 python-dotenv==1.0.1
